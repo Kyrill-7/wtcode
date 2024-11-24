@@ -1,0 +1,36 @@
+How to Run the Code in VS Code
+1. Set Up Environment
+Install XAMPP:
+Download and install XAMPP.
+Start the Apache and MySQL services using the XAMPP Control Panel.
+
+
+2. Create Database and Table
+Open phpMyAdmin at http://localhost/phpmyadmin/.
+Run the SQL script provided above to create the user_system database and users table.
+
+
+3. Place Project Files
+Create a folder inside the htdocs directory (e.g., login_module).
+Copy all the project files (register.php, login.php, dashboard.php, logout.php, db.php) into this folder.
+
+
+4. Test the Application
+Open a browser and go to:
+
+Copy code
+http://localhost/login_module/register.php
+
+Register a User:
+Fill out the form and register a user.
+
+Login:
+Go to http://localhost/login_module/login.php.
+Login with the registered credentials.
+
+Dashboard:
+After logging in, you’ll be redirected to dashboard.php.
+Check the displayed welcome message and last login time (if a cookie exists).
+
+Logout:
+Click the "Logout" link, which destroys the session and redirects to the login page

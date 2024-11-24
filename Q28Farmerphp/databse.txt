@@ -1,0 +1,49 @@
+/*
+CREATE DATABASE farm_shop;
+
+USE farm_shop;
+
+-- Table to store users (farmers and customers)
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    user_type ENUM('farmer', 'customer') NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Table to store products
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    farmer_id INT NOT NULL, -- references the user (farmer)
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    price DECIMAL(10, 2) NOT NULL,
+    stock_quantity INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (farmer_id) REFERENCES users(id)
+);
+
+-- Table to store orders
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_id INT NOT NULL, -- references the user (customer)
+    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('pending', 'shipped', 'delivered') DEFAULT 'pending',
+    total DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (customer_id) REFERENCES users(id)
+);
+
+-- Table to store order items (many-to-many relationship between orders and products)
+CREATE TABLE order_items (
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    PRIMARY KEY (order_id, product_id),
+    FOREIGN KEY (order_id) REFERENCES orders(id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
+);
+
+*/

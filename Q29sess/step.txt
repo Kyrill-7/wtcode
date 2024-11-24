@@ -1,0 +1,49 @@
+Instructions to Run the Project
+Install XAMPP
+
+Download and install XAMPP from Apache Friends.
+Start Apache and MySQL from the XAMPP Control Panel.
+Set Up the Database
+
+Open http://localhost/phpmyadmin.
+Create a database named session_management.
+Run the provided SQL script to create the sessions table.
+Place the Project Files
+
+Create a folder named session_management in C:\xampp\htdocs.
+Save the provided files (login.php, dashboard.php, logout.php, db.php) in this folder.
+Access the Application
+
+Open your browser and go to http://localhost/session_management/login.php.
+Test Workflow
+
+Login as the user (username: user, password: password).
+Open multiple browser tabs or devices and try logging in.
+If more than 3 concurrent sessions are attempted, an error will appear.
+Wait 5 minutes of inactivity to test session timeout.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE DATABASE session_management;
+
+USE session_management;
+
+-- Table to track active sessions
+CREATE TABLE sessions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    session_id VARCHAR(255) NOT NULL UNIQUE,
+    last_activity TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

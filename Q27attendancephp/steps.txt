@@ -1,0 +1,48 @@
+Instructions to Run the Project
+Install XAMPP
+
+Download and install XAMPP from Apache Friends.
+Start the Apache and MySQL services in the XAMPP Control Panel.
+Set Up Database
+
+Open http://localhost/phpmyadmin in your browser.
+Create a new database named attendance_system.
+Run the provided SQL script to create the required tables.
+Configure Files
+
+Create a folder named attendance_system in C:\xampp\htdocs.
+Save the provided PHP and CSS files in this folder.
+Access the Application
+
+Student Registration: Navigate to http://localhost/attendance_system/index.php.
+Teacher Attendance: Navigate to http://localhost/attendance_system/teacher.php.
+Test Workflow
+
+Register students using the Student Registration Page.
+Mark attendance using the Teacher Attendance Page.
+
+
+
+
+
+phpMyadmin
+CREATE DATABASE attendance_system;
+
+USE attendance_system;
+
+-- Students Table
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    roll_number VARCHAR(20) NOT NULL UNIQUE,
+    class VARCHAR(50) NOT NULL
+);
+
+-- Attendance Table
+CREATE TABLE attendance (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT NOT NULL,
+    date DATE NOT NULL,
+    status ENUM('Present', 'Absent') NOT NULL,
+    FOREIGN KEY (student_id) REFERENCES students(id)
+);
