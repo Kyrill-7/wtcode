@@ -1,0 +1,20 @@
+How to Run the Project
+Step 1: Install XAMPP
+Download and install XAMPP.
+Start the Apache server from the XAMPP Control Panel.
+
+Step 2: Set Up Project
+Open the htdocs folder in the XAMPP installation directory.
+Create a new folder, e.g., electricity_bill.
+Place the index.php file and style.css file (if used) in this folder.
+
+Step 3: Run the Application
+Open your browser and navigate to:
+arduino
+Copy code
+http://localhost/electricity_bill/index.php
+
+Step 4: Test the Application
+Enter the number of units in the form.
+Click "Calculate Bill".
+View the calculated bill displayed below the form.
